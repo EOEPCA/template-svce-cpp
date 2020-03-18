@@ -1,6 +1,9 @@
 
 cmake_minimum_required(VERSION 3.5)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_MACOSX_RPATH OFF)
+
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
@@ -34,7 +37,8 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 
+file(GLOB test_sources [a-z_]*.cpp application/[a-z_]*.cpp )
 
-add_executable(testss main.cpp)
-target_link_libraries(testss application gtest_main)
-add_test(NAME example_test COMMAND testss)
+add_executable(eoepca-test ${test_sources})
+target_link_libraries(eoepca-test application gtest_main)
+add_test(NAME eoepca_test_run COMMAND eoepca-test)

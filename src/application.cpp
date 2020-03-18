@@ -2,7 +2,6 @@
 
 namespace EOEPCA {
 
-
 Application::Application(std::string theId) : id(std::move(theId)) {}
 
 const std::string& Application::getId() const { return id; }
@@ -17,11 +16,8 @@ void Application::runRuntimeError() {
 }
 
 std::string Application::echo(std::string str) { return std::move(str); }
-void Application::show(std::string str) { std::cout << std::move(str) << std::endl; }
-
-
-
-
-
+void Application::show(std::string str) {
+  std::cout << std::move(str) << std::endl;
+}
 
 }  // namespace EOEPCA
