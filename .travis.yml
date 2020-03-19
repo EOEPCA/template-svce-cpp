@@ -13,5 +13,5 @@ jobs:
       script: travis/builderContainerCreation.sh
 
 
-notifications:
-  slack: eoepca:Msk9hjQKAbwSYcVWiepenPim
+# notifications:
+#   slack: eoepca:Msk9hjQKAbwSYcVWiepenPim
