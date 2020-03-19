@@ -10,6 +10,7 @@ echo ${TRAVIS_BRANCH} | grep '/'
 if [ $? -eq 0 ]
 then
 	TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@/@_@g')
+	TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@-@_@g')
 fi
 
 export TRAVIS_BRANCH
