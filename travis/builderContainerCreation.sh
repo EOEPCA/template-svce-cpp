@@ -28,5 +28,6 @@ if [ "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
 then
 	echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 	docker tag ${LOCAL_DOCKERIMAGE} ${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
+	docker push ${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
 fi
 
