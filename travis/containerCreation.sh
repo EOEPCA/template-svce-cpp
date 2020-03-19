@@ -11,6 +11,6 @@ TRAVIS_BUILD_NUMBER="${TRAVIS_BUILD_NUMBER:-0}"
 docker build --rm -t eoepca/testcompiler .
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker push $DOCKER_USERNAME/testcompiler:1   # defaults to docker hub
+docker push ${DOCKER_USERNAME}/testcompiler:1   # defaults to docker hub
 
 
