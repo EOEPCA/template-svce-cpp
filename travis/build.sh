@@ -2,9 +2,9 @@
 
 source travis/variables.sh
 
-if [ "${BUILD_IMAGE}" != "${NULL}" ]
+if [ "${BUILD_IMAGE}" == "${NULL}" ]
 then
-	source travis/libs/builder.sh
+	source travis/libs/builder.sh	
 else
 	LOCAL_DOCKERIMAGE=${BUILD_IMAGE}
 fi
