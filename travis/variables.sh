@@ -21,9 +21,9 @@ then
 	echo 'Branch selected: master '
 fi
 
-if [ "${TRAVIS_BRANCH}" == 'deveop' ]
+if [ "${TRAVIS_BRANCH}" == 'develop' ]
 then
-	echo 'Branch selected: develp' 
+	echo 'Branch selected: develop' 
 fi
 
 

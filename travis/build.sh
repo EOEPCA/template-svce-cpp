@@ -4,7 +4,21 @@ source travis/variables.sh
 
 if [ "${BUILD_IMAGE}" == "${NULL}" ]
 then
-	source travis/libs/builder.sh	
+	if [ "${BUILD_IMAGE_PUSH}" == "${NULL}" ]
+	then
+		source travis/libs/builder.sh
+		#LOCAL_DOCKERIMAGE=${BUILD_IMAGE}
+	else 
+
+		docker pull ${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
+		if [ $? -ne 0 ] #pull failed
+		then 
+			source travis/libs/builder.sh
+		else
+			LOCAL_DOCKERIMAGE=${BUILD_IMAGE}
+		fi
+	fi
+
 else
 	LOCAL_DOCKERIMAGE=${BUILD_IMAGE}
 fi

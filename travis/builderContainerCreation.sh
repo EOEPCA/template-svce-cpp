@@ -5,12 +5,9 @@ set -euov pipefail
 
 source travis/variables.sh
 
-if [ "${BUILD_IMAGE}" == "${NULL}" ]
+if [ "${BUILD_IMAGE}" == "${NULL}" -a "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
 then
-	if [ "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
-	then
-		source travis/libs/builder.sh
-	fi
+	source travis/libs/builder.sh
 fi
 
 
