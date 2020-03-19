@@ -8,8 +8,10 @@ services:
 
 jobs:
   include:
-    - stage: container creation
+    - stage: builder container creation
       install: skip
-      script: travis/containerCreation.sh
+      script: travis/builderContainerCreation.sh
 
 
+notifications:
+  slack: eoepca:Msk9hjQKAbwSYcVWiepenPim
