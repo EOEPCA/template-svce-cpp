@@ -5,20 +5,21 @@ set -euov pipefail
 
 source travis/variables.sh
 
-BUILDIMAGE=false
+BUILDIMAGE="Build"
 if [ "${BUILD_IMAGE}" != "${NULL}" ] #is defined a public DockerImageCompiler
 then
 	docker pull ${BUILD_IMAGE}
 	if [ $? -ne 0 ] #pull failed, build my DockerImageCompiler
 	then
-		BUILDIMAGE=true	
+		BUILDIMAGE="Build"
 	else
+		BUILDIMAGE="${NULL}"
 		docker tag ${BUILD_IMAGE} ${LOCAL_DOCKERIMAGE}
 	fi
 fi
 
 # the Image must be buildt
-if [ ${BUILDIMAGE} -eq true ]
+if [ ${BUILDIMAGE} != "${NULL}" ]
 then
 	docker build --rm --no-cache -t ${LOCAL_DOCKERIMAGE} .
 fi
