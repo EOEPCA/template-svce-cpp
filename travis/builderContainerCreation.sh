@@ -7,7 +7,10 @@ source travis/variables.sh
 
 if [ "${BUILD_IMAGE}" == "${NULL}" ]
 then
-	source travis/libs/builder.sh
+	if [ "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
+	then
+		source travis/libs/builder.sh
+	fi
 fi
 
 
