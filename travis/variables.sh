@@ -15,6 +15,18 @@ fi
 
 export TRAVIS_BRANCH
 
+
+if [ "${TRAVIS_BRANCH}" == 'master' ]
+then
+	echo 'Branch selected: master '
+fi
+
+if [ "${TRAVIS_BRANCH}" == 'deveop' ]
+then
+	echo 'Branch selected: develp' 
+fi
+
+
 export buildTag=travis_${TRAVIS_BRANCH}_${TRAVIS_BUILD_NUMBER}
 export BUILD_IMAGE="${BUILD_IMAGE:-${NULL}}"
 export BUILD_IMAGE_PUSH="${BUILD_IMAGE_PUSH:-${NULL}}"

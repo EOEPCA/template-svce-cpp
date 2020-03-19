@@ -12,7 +12,12 @@ jobs:
     - stage: builder container creation
       install: skip
       script: travis/builderContainerCreation.sh
+    
+    - stage: build (compile, unit test, package)
+      install: skip
+      script: travis/build.sh
 
+      
 
 # notifications:
 #   slack: eoepca:Msk9hjQKAbwSYcVWiepenPim

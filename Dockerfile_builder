@@ -7,7 +7,7 @@ ENV HOME /root
 
 RUN yum update -y && \
     yum upgrade -y && \
-    yum install -y sudo vim wget unzip openssh-clients openssh-server \
+    yum install -y git sudo vim wget unzip openssh-clients openssh-server \
     make bzip2 kernel-devel pkgconfig openssl openssl-devel libxml2 libxml2-devel \
     libcurl-devel libcurl curl zlib-devel bison  libxslt libxslt-devel \
     python-devel   libuuid-devel     which  \

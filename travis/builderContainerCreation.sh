@@ -21,7 +21,7 @@ fi
 # the Image must be buildt
 if [ ${BUILDIMAGE} != "${NULL}" ]
 then
-	docker build --rm --no-cache -t ${LOCAL_DOCKERIMAGE} .
+	docker build --rm --no-cache -t ${LOCAL_DOCKERIMAGE} -f Dockerfile_builder .
 fi
 
 # check if the Image must be push
