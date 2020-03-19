@@ -8,7 +8,7 @@ TRAVIS_BRANCH="${TRAVIS_BRANCH:-develop}"
 TRAVIS_BUILD_NUMBER="${TRAVIS_BUILD_NUMBER:-0}"
 
 # Create a Docker image and tag it as 'travis_<build number>'
-docker build --rm -t eoepca/testcompiler .
+docker build --rm -t ${DOCKER_USERNAME}/testcompiler:1 .
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 docker push ${DOCKER_USERNAME}/testcompiler:1   # defaults to docker hub
