@@ -6,7 +6,7 @@ set -euov pipefail
 source travis/variables.sh
 
 BUILDIMAGE=false
-if [ -n "${BUILD_IMAGE}" ] #is defined a public DockerImageCompiler
+if [ "${BUILD_IMAGE}" != "${NULL}" ] #is defined a public DockerImageCompiler
 then
 	docker pull ${BUILD_IMAGE}
 	if [ $? -ne 0 ] #pull failed, build my DockerImageCompiler
@@ -24,7 +24,7 @@ then
 fi
 
 # check if the Image must be push
-if [ -n "${BUILD_IMAGE_PUSH}" ]
+if [ "${BUILD_IMAGE_PUSH}" != "${NULL}"]
 then
 	echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 	docker tag ${LOCAL_DOCKERIMAGE} ${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
