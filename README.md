@@ -131,7 +131,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ### Running the template service
 
-Just execute the run task in Gradle
+To run the application
 
 ```sh
 ./src/eoepca
