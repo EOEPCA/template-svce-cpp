@@ -66,13 +66,12 @@
 
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`template-svce`, `twitter_handle`, `email`
+`template-svce-cpp`, `twitter_handle`, `email`
 
 ### Built With
 
-- [Javalin framework](https://javalin.io/)
-- [Log4j2](https://logging.apache.org/log4j/2.x/) + [YAML](https://yaml.org/)
-- [Junit 5](https://junit.org/junit5/)
+- [CMAKE](https://cmake.org/)
+- [googletest](https://github.com/google/googletest)
 
 <!-- GETTING STARTED -->
 
@@ -85,7 +84,7 @@ To get a local copy up and running follow these simple steps.
 This is an example of how to list things you need to use the software and how to install them.
 
 - [Vagrant](https://www.vagrantup.com/docs/installation/)
-- [EOEPCA Development Environment](https://github.com/EOEPCA/dev-env)
+- [EOEPCA Development Environment](https://github.com/EOEPCA/dev-env-cpp)
 
 ### Installation
 
@@ -98,24 +97,29 @@ vagrant ssh
 3. Clone the repo
 
 ```sh
-git clone https://github.com/EOEPCA/template-svce.git
+git clone https://github.com/EOEPCA/template-svce-cpp.git
 ```
 
 4. Change local directory
 
 ```sh
-cd template-service
+cd template-service-cpp/build
+```
+
+5. Build application
+
+```sh
+cmake -DCMAKE_BUILD_TYPE=Debuf -G "CodeBlocks - Unix Makefiles" ..
+make
 ```
 
 ### Testing
 
-- `./gradlew build` runs only the unit tests
-- `./gradlew integrationTest` runs only the integration tests (it compiles all source code beforehand). It does not package or deploy a build.
-  This is assumed to have been done in a prior build pipeline step.
+- `./test/eoepca-test` runs only the unit tests
 
 ## Documentation
 
-The component documentation can be found at https://eoepca.github.io/template-svce/.
+The component documentation can be found at https://eoepca.github.io/template-svce-cpp/.
 
 <!-- USAGE EXAMPLES -->
 
@@ -130,22 +134,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 Just execute the run task in Gradle
 
 ```sh
-./gradlew run
+./src/eoepca
 ```
-
-### Upgrading Gradle Wrapper
-
-Change the version number in the `build.gradle` wrapper task then run:
-
-```sh
-./gradlew wrapper --gradle-version=4.10.2 --distribution-type=bin
-```
-
-<!-- ROADMAP -->
 
 ## Roadmap
 
-See the [open issues](https://github.com/EOEPCA/template-svce/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/EOEPCA/template-svce-cpp/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -171,7 +165,7 @@ Distributed under the Apache-2.0 License. See `LICENSE` for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
-Project Link: [https://github.com/EOEPCA/template-svce](https://github.com/EOEPCA/template-svce)
+Project Link: [https://github.com/EOEPCA/template-svce-cpp](https://github.com/EOEPCA/template-svce)
 
 <!-- ACKNOWLEDGEMENTS -->
 
