@@ -15,7 +15,7 @@ then
 		then 
 			source travis/libs/builder.sh
 		else
-			LOCAL_DOCKERIMAGE=${BUILD_IMAGE}
+			LOCAL_DOCKERIMAGE=${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
 		fi
 	fi
 

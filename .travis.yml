@@ -17,7 +17,8 @@ jobs:
       install: skip
       script: travis/build.sh
 
-      
+import:
+  - docs/.travis.yml
 
 notifications:
   slack: eoepca:Msk9hjQKAbwSYcVWiepenPim
