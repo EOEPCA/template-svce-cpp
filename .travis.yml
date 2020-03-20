@@ -1,0 +1,24 @@
+sudo: required
+os:
+  - linux
+language: cpp
+dist: bionic
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: builder container creation
+      install: skip
+      script: travis/builderContainerCreation.sh
+    
+    - stage: build (compile, unit test, package)
+      install: skip
+      script: travis/build.sh
+
+import:
+  - docs/.travis.yml
+
+notifications:
+  slack: eoepca:Msk9hjQKAbwSYcVWiepenPim
