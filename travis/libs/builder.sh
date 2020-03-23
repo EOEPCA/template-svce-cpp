@@ -17,6 +17,7 @@ fi
 if [ ${BUILDIMAGE} != "${NULL}" ]
 then
 	docker build --rm --no-cache -t ${LOCAL_DOCKERIMAGE} -f Dockerfile_builder .
+
 fi
 
 docker tag ${LOCAL_DOCKERIMAGE} ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
@@ -25,7 +26,9 @@ docker tag ${LOCAL_DOCKERIMAGE} ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
 if [ "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
 then
 	echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+	docker tag ${LOCAL_DOCKERIMAGE} "${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILD_IMAGE_PUSH}"
 	echo "Image ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILD_IMAGE_PUSH} created."
+
 	docker push "${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILD_IMAGE_PUSH}"
 fi
 

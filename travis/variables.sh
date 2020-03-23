@@ -24,17 +24,21 @@ TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@-@_@g')
 
 export TRAVIS_BRANCH
 
+
+export CMAKERELEASE="Debug"
+
 #simple anchor
 if [ "${TRAVIS_BRANCH}" == 'master' ]
 then
-  RELEASETYPE='release_'
+  CMAKERELEASE="Release"
+  RELEASETYPE='release'
 	echo 'Branch selected: master '
 fi
 
 #simple anchor
 if [ "${TRAVIS_BRANCH}" == 'develop' ]
 then
-  RELEASETYPE='develop_'
+  RELEASETYPE='develop'
 	echo 'Branch selected: develop' 
 fi
 
