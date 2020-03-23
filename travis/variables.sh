@@ -2,16 +2,17 @@
 
 RELEASETYPE=''
 
+
+export SERVICE_NAME="template-service-cpp"
+export LOCAL_SERVICE_NAME="local_${SERVICE_NAME}"
+
 #null definition
 export NULL='none'
 
 #internal DokerImage name
 export LOCAL_DOCKERIMAGE='eoepca/eoepca-build-cpp'
-
-
 #eoepca repository
 export EOEPCA_REPOSITORY='eoepca'
-
 #eoepca name
 export EOEPCA_IMAGE="eoepca-build-cpp"
 
