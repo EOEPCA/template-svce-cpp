@@ -37,6 +37,7 @@ fi
 #simple anchor
 if [ "${TRAVIS_BRANCH}" == 'develop' ]
 then
+  RELEASETYPE='develop_'
 	echo 'Branch selected: develop' 
 fi
 
