@@ -11,13 +11,13 @@ then
 		source travis/libs/builder.sh
 	else 
     #pull the user's image
-		docker pull ${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
+		docker pull ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
 		if [ $? -ne 0 ] #pull failed
 		then
 		  #pull failed, build the builder image
 			source travis/libs/builder.sh
 		else
-			LOCAL_DOCKERIMAGE=${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
+			LOCAL_DOCKERIMAGE=${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
 		fi
 	fi
 

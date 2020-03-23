@@ -19,13 +19,14 @@ then
 	docker build --rm --no-cache -t ${LOCAL_DOCKERIMAGE} -f Dockerfile_builder .
 fi
 
-docker tag ${LOCAL_DOCKERIMAGE} ${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
+docker tag ${LOCAL_DOCKERIMAGE} ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
 
 # check if the Image must be push
 if [ "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
 then
 	echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-	docker push ${DOCKER_USERNAME}/${EOEPCA_IMAGE}:$buildTag
+	echo "Image ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag created."
+	docker push ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
 fi
 
 

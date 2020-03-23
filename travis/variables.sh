@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 
+RELEASETYPE=''
+
 #null definition
 export NULL='none'
 
 #internal DokerImage name
-export LOCAL_DOCKERIMAGE='eoepca/eoepca-build'
+export LOCAL_DOCKERIMAGE='eoepca/eoepca-build-cpp'
+
+
+#eoepca repository
+export EOEPCA_REPOSITORY='eoepca'
 
 #eoepca name
-export EOEPCA_IMAGE="eoepca-build"
+export EOEPCA_IMAGE="eoepca-build-cpp"
 
 #get branch name
 TRAVIS_BRANCH="${TRAVIS_BRANCH:-develop}"
@@ -24,6 +30,7 @@ export TRAVIS_BRANCH
 #simple anchor
 if [ "${TRAVIS_BRANCH}" == 'master' ]
 then
+  RELEASETYPE='release_'
 	echo 'Branch selected: master '
 fi
 
@@ -35,7 +42,7 @@ fi
 
 #new definitions
 export TRAVIS_BUILD_NUMBER="${TRAVIS_BUILD_NUMBER:-0}"
-export buildTag=travis_${TRAVIS_BRANCH}_${TRAVIS_BUILD_NUMBER}
+export buildTag=${RELEASETYPE}${TRAVIS_BRANCH}_${TRAVIS_BUILD_NUMBER}
 export BUILD_IMAGE="${BUILD_IMAGE:-${NULL}}"
 export BUILD_IMAGE_PUSH="${BUILD_IMAGE_PUSH:-${NULL}}"
 
