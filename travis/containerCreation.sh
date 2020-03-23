@@ -11,10 +11,10 @@ source travis/variables.sh
 
 source travis/build.sh
 
-docker build -t eoepca/${LOCAL_SERVICE_NAME} .
+docker build -t ${EOEPCA_REPOSITORY}/${LOCAL_SERVICE_NAME} .
 
-docker tag eoepca/${LOCAL_SERVICE_NAME} eoepca/{$SERVICE_NAME}:$buildTag
+docker tag ${EOEPCA_REPOSITORY}/${LOCAL_SERVICE_NAME} ${EOEPCA_REPOSITORY}/{$SERVICE_NAME}:$buildTag
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-docker push eoepca/eoepca/{$SERVICE_NAME}:$buildTag
+docker push ${EOEPCA_REPOSITORY}/{$SERVICE_NAME}:$buildTag
