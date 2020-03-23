@@ -19,12 +19,9 @@ export EOEPCA_IMAGE="eoepca-build-cpp"
 TRAVIS_BRANCH="${TRAVIS_BRANCH:-develop}"
 
 #change name for branch feature ex feature/EOEPCA-38 change in  feature_EOEPCA_38
-echo ${TRAVIS_BRANCH} | grep '/'
-if [ $? -eq 0 ]
-then
-	TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@/@_@g')
-	TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@-@_@g')
-fi
+TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@/@_@g')
+TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@-@_@g')
+
 export TRAVIS_BRANCH
 
 #simple anchor
