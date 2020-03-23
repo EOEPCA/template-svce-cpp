@@ -1,6 +1,6 @@
 FROM centos/devtoolset-7-toolchain-centos7
 LABEL Author="Roberto di Rienzo"
-LABEL project="builder-svce-cpp"
+LABEL project="eoepca-build-cpp"
 
 USER root
 ENV HOME /root
