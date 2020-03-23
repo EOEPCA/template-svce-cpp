@@ -9,7 +9,7 @@ LOCAL_SERVICE_NAME="local_${SERVICE_NAME}"
 
 source travis/variables.sh
 
-source travis/build.sh
+source travis/libs/builder.sh
 
 docker build -t ${EOEPCA_REPOSITORY}/${LOCAL_SERVICE_NAME} .
 
