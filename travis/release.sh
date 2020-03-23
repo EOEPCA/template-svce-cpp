@@ -2,6 +2,9 @@
 
 set -euov pipefail
 
+
+source travis/variables.sh
+
 pullTag=${EOEPCA_REPOSITORY}/${SERVICE_NAME}:$buildTag
 releaseTag=${EOEPCA_REPOSITORY}/${SERVICE_NAME}:release_${buildTag}
 latestTag=${EOEPCA_REPOSITORY}/${SERVICE_NAME}:latest
