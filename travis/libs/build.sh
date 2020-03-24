@@ -2,7 +2,7 @@
 
 if [ "${BUILD_IMAGE}" == "${NULL}" ] #image is not defined
 then
-	if [ "${BUILD_IMAGE_PUSH}" == "${NULL}" ]#user does not push the newly created image
+	if [ "${BUILD_IMAGE_PUSH}" == "${NULL}" ]
 	then
 	  # import build script
 		source travis/libs/builder.sh
