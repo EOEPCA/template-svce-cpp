@@ -18,7 +18,7 @@ jobs:
       script: travis/build.sh
 
     - stage: smoke and acceptance test
-      install: skip # without this there's a `git clone` and `gradlew assemble` executed!
+      install: skip
       script: travis/acceptanceTest.sh
 
     - stage: release
