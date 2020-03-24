@@ -14,7 +14,7 @@ then
 		  #pull failed, build the builder image
 			source travis/libs/builder.sh
 		else
-			LOCAL_DOCKERIMAGE=${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
+			LOCAL_DOCKERIMAGE=${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILD_IMAGE_PUSH}
 		fi
 	fi
 
