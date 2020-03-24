@@ -6,9 +6,18 @@ source travis/variables.sh
 if [ "${TRAVIS}" != "true" ]
 then
 
-  source travis/libs/build.sh
+	cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S . -B build/
+	if [ $? -ne 0 ]
+	then
+		echo "CMAKE prepare failed"
+		exit
+	fi
 
-  #tests
-  docker run --rm -ti  -v $PWD:/project/ -w /project/build/  ${LOCAL_DOCKERIMAGE} ./test/eoepca-test
+	cmake --build build/  --target all -- -j 2
+  if [ $? -ne 0 ]
+  then
+    echo "Build failed"
+		exit
+  fi
 
 fi

@@ -89,11 +89,11 @@ To get a local copy up and running follow these simple steps.
 This is an example of how to list things you need to use the software and how to install them.
 
 - [Vagrant](https://www.vagrantup.com/docs/installation/)
-- [EOEPCA Development Environment](https://github.com/EOEPCA/dev-env-cpp)
+- [EOEPCA Development Environment for C++](https://github.com/EOEPCA/dev-env-cpp)
 
 ### Installation
 
-1. Get into EOEPCA's development environment
+1. Get into EOEPCA's development environment for C++
 
 ```sh
 vagrant ssh
