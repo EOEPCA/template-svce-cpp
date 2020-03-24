@@ -21,7 +21,6 @@ jobs:
       install: skip
       script: travis/containerCreation.sh
 
-
     - stage: smoke and acceptance test
       install: skip
       script: travis/acceptanceTest.sh
@@ -34,11 +33,11 @@ jobs:
 import:
   - docs/.travis.yml
 
-#notifications:
-#  slack: eoepca:Msk9hjQKAbwSYcVWiepenPim
-#  email:
-#    recipients:
-#      - a.person@acme.com
-#      - a.n.other@acme.com
-#    on_success: never # default: change
-#    on_failure: never # default: always
+notifications:
+  slack: eoepca:Msk9hjQKAbwSYcVWiepenPim
+  email:
+    recipients:
+      - a.person@acme.com
+      - a.n.other@acme.com
+    on_success: never # default: change
+    on_failure: never # default: always
