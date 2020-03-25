@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 BUILDIMAGE="Build"
-if [ "${BUILD_IMAGE}" != "${NULL}" ] #is defined a public DockerImageCompiler
+if [ "${BUILDER_ENV_IMAGE}" != "${NULL}" ] #is defined a public DockerImageCompiler
 then
-	docker pull ${BUILD_IMAGE}
+	docker pull ${BUILDER_ENV_IMAGE}
 	if [ $? -ne 0 ] #pull failed, build my DockerImageCompiler
 	then
 		BUILDIMAGE="Build"
 	else
 		BUILDIMAGE="${NULL}"
-		docker tag ${BUILD_IMAGE} ${LOCAL_DOCKERIMAGE}
+		docker tag ${BUILDER_ENV_IMAGE} ${LOCAL_DOCKERIMAGE}
 	fi
 fi
 
@@ -23,13 +23,13 @@ fi
 docker tag ${LOCAL_DOCKERIMAGE} ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:$buildTag
 
 # check if the Image must be push
-if [ "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
+if [ "${BUILDER_ENV_IMAGE_NEW_TAG}" != "${NULL}" ]
 then
 	echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-	docker tag ${LOCAL_DOCKERIMAGE} "${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILD_IMAGE_PUSH}"
-	echo "Image ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILD_IMAGE_PUSH} created."
+	docker tag ${LOCAL_DOCKERIMAGE} "${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILDER_ENV_IMAGE_NEW_TAG}"
+	echo "Image ${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILDER_ENV_IMAGE_NEW_TAG} created."
 
-	docker push "${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILD_IMAGE_PUSH}"
+	docker push "${EOEPCA_REPOSITORY}/${EOEPCA_IMAGE}:${BUILDER_ENV_IMAGE_NEW_TAG}"
 fi
 
 

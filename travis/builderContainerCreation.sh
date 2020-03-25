@@ -6,7 +6,7 @@ set -euov pipefail
 #import globals
 source travis/variables.sh
 
-if [ "${BUILD_IMAGE}" == "${NULL}" -a "${BUILD_IMAGE_PUSH}" != "${NULL}" ]
+if [ "${BUILDER_ENV_IMAGE}" == "${NULL}" -a "${BUILDER_ENV_IMAGE_NEW_TAG}" != "${NULL}" ]
 then
   # import build script
 	source travis/libs/builder.sh
