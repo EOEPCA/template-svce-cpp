@@ -23,9 +23,11 @@ TRAVIS_BRANCH="${TRAVIS_BRANCH:-develop}"
 TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@/@_@g')
 TRAVIS_BRANCH=$(echo ${TRAVIS_BRANCH}| sed -e 's@-@_@g')
 
+
+TRAVIS_NAME="travis_"
+
 export TRAVIS_BRANCH
-
-
+export TRAVIS_NAME
 export CMAKERELEASE="Debug"
 
 #simple anchor
@@ -33,6 +35,7 @@ if [ "${TRAVIS_BRANCH}" == 'master' ]
 then
   CMAKERELEASE="Release"
   RELEASETYPE='release'
+  TRAVIS_NAME=''
 	echo 'Branch selected: master '
 fi
 
@@ -45,7 +48,7 @@ fi
 
 #new definitions
 export TRAVIS_BUILD_NUMBER="${TRAVIS_BUILD_NUMBER:-0}"
-export buildTag=${TRAVIS_BRANCH}_${TRAVIS_BUILD_NUMBER}
+export buildTag=${TRAVIS_NAME}${TRAVIS_BRANCH}_${TRAVIS_BUILD_NUMBER}
 export BUILDER_ENV_IMAGE="${BUILDER_ENV_IMAGE:-${NULL}}"
 export BUILDER_ENV_IMAGE_NEW_TAG="${BUILDER_ENV_IMAGE_NEW_TAG:-${NULL}}"
 
