@@ -1,6 +1,6 @@
 = EOEPCA - {component-name}
 :component-name: <Template Service>
-:component-github-name: template-svce-cpp
+:component-github-name: template-svce
 
 EO Exploitation Platform Common Architecture (EOEPCA).
 
